@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+
+        <!-- Define a new view for displaying Task Attachments -->
+        <record id="view_task_attachment_form" model="ir.ui.view">
+            <field name="name">task.attachment.form</field>
+            <field name="model">task.attachment</field>
+            <field name="arch" type="xml">
+                <form string="Task Attachment">
+
+                    <!-- Display the task_id field -->
+                    <group>
+                        <field name="image"/>
+                        <field name="id_type"/>
+                        <field name="image_preview" widget="image" options="{'zoom': true}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Kanban View -->
+        <record id="action_task_kanban" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my_module.task</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Menu Item for Task -->
+        <menuitem id="menu_task_root" name="Tasks" sequence="10"/>
+        <menuitem id="menu_task" name="Tasks" parent="menu_task_root" action="action_task_kanban" sequence="1"/>
+
+    </data>
+</odoo>

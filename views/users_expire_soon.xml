@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <!-- Define a new tree view for custom.person model -->
+        <record id="view_expire_soon_tree" model="ir.ui.view">
+            <field name="name">expire_soon.tree</field>
+            <field name="model">expire_soon</field>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="get_expired_users" string="Update All users" class="oe_highlight" type="object"
+                            groups="base.group_user"
+                            confirm="Are you sure you want to Update users who are about to expire? This may tok while"/>
+                    />
+
+                    <button name="send_whatsapp_message" string="Send WhatsApp Message" class="oe_highlight"
+                            type="object"
+                            icon="fa-whatsapp"
+                            groups="base.group_user"
+                            confirm="Are you sure you want to send WhatsApp messages to users who are about to expire?"/>
+
+                </header>
+                <tree decoration-success="user_message_status == 'True'">
+
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="expiration"/>
+                    <field name="user_message_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define a new form view for custom.person model -->
+        <record id="view_expire_soon_form" model="ir.ui.view">
+            <field name="name">expire_soon.form</field>
+            <field name="model">expire_soon</field>
+            <field name="arch" type="xml">
+                <form>
+                    <button name="get_expired_users" string="Update All users" class="oe_highlight" type="object"
+                            groups="base.group_user"/>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="expiration"/>
+                             <field name="user_message_status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define a new action for custom.person model -->
+        <record id="action_expire_soon" model="ir.actions.act_window">
+            <field name="name">user will expire soon</field>
+            <field name="res_model">expire_soon</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

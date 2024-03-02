@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_dp_form" model="ir.ui.view">
+            <field name="name">dp.form</field>
+            <field name="model">dp</field>
+            <field name="arch" type="xml">
+                <form string="dp Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="rc_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree View (Optional) -->
+        <record id="view_dp_tree" model="ir.ui.view">
+            <field name="name">dp.tree</field>
+            <field name="model">dp</field>
+            <field name="arch" type="xml">
+                <tree string="dp Tree">
+                    <field name="rc_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_dp_tree" model="ir.actions.act_window">
+            <field name="name">dp</field>
+            <field name="res_model">dp</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_dp_tree"/>
+        </record>
+        <!-- Menu Item -->
+        <menuitem id="menu_dp_root" name="dp"/>
+        <menuitem id="menu_dp" name="DP" parent="menu_dp_root" action="action_dp_tree"/>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define the view for problem.type model -->
+        <record id="view_problem_type_tree" model="ir.ui.view">
+            <field name="name">problem.type.tree</field>
+            <field name="model">problem.type</field>
+            <field name="arch" type="xml">
+                <tree string="Problem Types">
+                    <field name="name"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+             <record id="view_problem_type_form" model="ir.ui.view">
+            <field name="name">problem.type.form</field>
+            <field name="model">problem.type</field>
+            <field name="arch" type="xml">
+                <form string="Problem Type">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Define action for opening the problem type tree view -->
+        <record id="action_problem_type_tree" model="ir.actions.act_window">
+            <field name="name">Problem Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">problem.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Define menu item for problem type -->
+        <menuitem id="menu_problem_type" name="Problem Types" sequence="30"/>
+        <menuitem id="menu_problem_type_root" parent="menu_problem_type" name="Problem Types"/>
+        <menuitem id="menu_problem_type_list" parent="menu_problem_type_root" name="Problem Types" action="action_problem_type_tree"/>
+    </data>
+</odoo>

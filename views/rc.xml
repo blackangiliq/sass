@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_rc_form" model="ir.ui.view">
+            <field name="name">rc.form</field>
+            <field name="model">rc</field>
+            <field name="arch" type="xml">
+                <form string="RC Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dp_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Tree View (Optional) -->
+        <record id="view_rc_tree" model="ir.ui.view">
+            <field name="name">rc.tree</field>
+            <field name="model">rc</field>
+            <field name="arch" type="xml">
+                <tree string="RC Tree">
+                    <field name="name"/>
+                    <field name="dp_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_rc_tree" model="ir.actions.act_window">
+            <field name="name">RC</field>
+            <field name="res_model">rc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_rc_tree"/>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_rc_root" name="RC"/>
+        <menuitem id="menu_rc" name="RC" parent="menu_rc_root" action="action_rc_tree"/>
+    </data>
+</odoo>

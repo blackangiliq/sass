@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+
+        <!-- Kanban View for Task -->
+        <record id="view_task_kanban" model="ir.ui.view">
+            <field name="name">task.kanban.view</field>
+            <field name="model">my_module.task</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="status">
+                    <field name="status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class=" oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <field name="username"/>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <field name="description"/>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <field name="call_number"/>
+                                </div>
+
+                                <div class="o_kanban_card_content">
+                                    <field name="attachments"/>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <field name="assigned_to"/>
+                                    <field name="color"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                    <field name="status" string="Status"/>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Tree View for Task -->
+        <record id="view_task_tree" model="ir.ui.view">
+            <field name="name">task.tree.view</field>
+            <field name="model">my_module.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="username"/>
+                    <field name="description"/>
+                    <field name="call_number"/>
+                    <field name="color" widget="color_picker"/>
+                    <field name="status"/>
+                    <field name="attachments"/>
+                    <field name="assigned_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_task_form" model="ir.ui.view">
+            <field name="name">task.form.view</field>
+            <field name="model">my_module.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" title="New" bg_color="bg-danger"
+                                attrs="{'invisible': [('status', '!=', 'new')]}"/>
+                        <widget name="web_ribbon" title="close" bg_color="bg-danger"
+                                attrs="{'invisible': [('status', '!=', 'close')]}"/>
+                        <group>
+                            <group col="1">
+                                <field name="name"/>
+                                <field name="username"/>
+                                <field name="call_number"/>
+                                <field name="phone"/>
+                                <field name="description"/>
+                                <field name="description_after_fix"/>
+
+                                <field name="status"/>
+                                <field name="assigned_to"/>
+                                <field name="profile_type"/>
+                                <field name="expiration"/>
+
+                                <field name="lat"/>
+                                <field name="lng"/>
+                                <field name="location"/>
+
+
+                            </group>
+
+                            <group col="2">
+                                <field name="firstname"/>
+                                <field name="lastname"/>
+                                <field name="ppoe"/>
+                                <field name="Customer_type"/>
+                                <field name="Whatsup_number"/>
+                                <field name="ont_model"/>
+                                <field name="router_model"/>
+                                <field name="area"/>
+                                <field name="dist"/>
+                                <field name="street"/>
+                                <field name="home"/>
+                                <field name="rc"/>
+                                <field name="dp"/>
+                                <field name="dp_port"/>
+
+                                <field name="color" widget="color_picker"/>
+
+
+                            </group>
+                        </group>
+                        <notebook>
+
+                            <page string="attachments">
+
+
+                                <button name="upload_image_action" string="Upload muilty Image" class="oe_highlight"
+                                        icon="fa-upload" type="object"/>
+                                <field name="attachments" widget="many2many_binary_file">
+
+                                    <tree>
+                                        <field name="id_type"/>
+
+                                        <field name="image" widget="image"
+                                               class="oe_avatar"
+                                               options="{'preview_image': 'image_small', 'size': [90, 90]}"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+                            <page string="Update Data">
+                                <field name="change_request"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

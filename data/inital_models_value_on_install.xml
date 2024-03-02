@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_setting_config" model="setting">
+            <field name="sendWhatsupMsg">False</field>
+            <field name="name">admin@whale</field>
+            <field name="sass_password">whale5060</field>
+            <field name="sass_ip">37.77.48.7</field>
+        </record>
+
+
+        <record id="adding_j_basic_profile" model="sass.profile">
+            <field name="name">J_Basic</field>
+            <field name="price">35000</field>
+            <field name="priceWithServess">10000</field>
+        </record>
+
+        <record id="adding_J-Premium_profile" model="sass.profile">
+            <field name="name">J-Premium</field>
+            <field name="price">45000</field>
+            <field name="priceWithServess">10000</field>
+        </record>
+
+        <record id="adding_J_Ultra_profile" model="sass.profile">
+            <field name="name">J_Ultra</field>
+            <field name="price">60000</field>
+            <field name="priceWithServess">10000</field>
+        </record>
+
+        <record id="adding_Trail_profile" model="sass.profile">
+            <field name="name">1 Day Trail</field>
+            <field name="price">1200</field>
+            <field name="priceWithServess">10000</field>
+        </record>
+
+
+    </data>
+</odoo>

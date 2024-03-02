@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+
+        <record id="view_inventory_kanban" model="ir.ui.view">
+            <field name="name">inventory.kanban</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey">
+                    <field name="name"/>
+                    <field name="count"/>
+                    <field name="price"/>
+                    <field name="model"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_global_click">
+                                    <div class="oe_kanban_details">
+                                        <strong>
+                                            <strong>
+                                                <field name="name"/>
+                                                <t t-if="record.model"> </t>
+                                                <field name="model"/>
+                                            </strong>
+
+                                        </strong>
+                                        <br/>
+                                        <div class="quantity-controls">
+                                            <button type="button" class="btn increment-btn" name="increment_count">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                            <field name="count"/>
+                                            <button type="button" class="btn decrement-btn" name="decrement_count">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <br/>
+                                        <field name="price"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Define a new tree view for custom.person model -->
+        <record id="view_inventory_tree" model="ir.ui.view">
+            <field name="name">inventory.tree</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="count"/>
+                    <field name="price"/>
+                    <field name="model"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define a new form view for custom.person model -->
+        <record id="view_inventory_form" model="ir.ui.view">
+            <field name="name">inventory.form</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="count"/>
+                            <field name="price"/>
+                            <field name="model"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define a new action for custom.person model -->
+        <record id="action_inventory" model="ir.actions.act_window">
+            <field name="name">المخزن</field>
+            <field name="res_model">inventory</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+    </data>
+</odoo>

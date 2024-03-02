@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="sass.list">
+            <field name="name">sass list</field>
+            <field name="model">sass.users</field>
+            <field name="arch" type="xml">
+
+                <tree
+                        limit="500">
+                    <header>
+                        <button name="get_and_update_record" string="Update All users" class="oe_highlight" type="object"
+                                groups="base.group_user"/>
+                        <button name="update_100_last_record" string="update last new 100" class="oe_highlight"
+                                type="object"
+                                groups="base.group_user"/>
+                    </header>
+                    <field name="name"/>
+                    <field name="profile_type"/>
+                    <field name="phone"/>
+                    <field name="online_ip" widget="url"/>
+                    <button name="refresh_record" type="object" string="Refresh" icon="fa-refresh"/>
+                    <field name="traffic"/>
+                    <field name="expiration_status"/>
+
+                    <!--                    <field name="cal_num" widget="many2many_tags"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sass.form_with_sheet_and_notebook">
+            <field name="name">sass form with sheet and notebook</field>
+            <field name="model">sass.users</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="get_and_update_record" string="Update All users" class="oe_highlight" type="object"
+                                groups="base.group_user"/>
+                        <button name="refresh_record" type="object" string="Refresh this user" icon="fa-refresh"
+                                class="oe_highlight"/>
+
+                        <button name="open_map_action" string="open fat location" class="oe_highlight"
+                                type="object"/>
+
+                         <button name="open_online_ip" string="Open IP" class="oe_highlight"
+                                type="object"/>
+                    </header>
+                    <sheet>
+
+                        <group>
+                            <group>
+
+                                <field name="name"/>
+                                <field name="profile_type"/>
+                                <field name="phone"/>
+
+                            </group>
+                            <group>
+                                <field name="expiration_status"/>
+                                <field name="profile_id"/>
+                                <field name="userid"/>
+                                <field name="created_at"/>
+                                <field name="online_ip"/>
+                                <field name="online_MAC"/>
+                                <field name="MAC_vendor"/>
+                            </group>
+                            <group>
+
+                                <field name="lastname"/>
+                                <field name="firstname"/>
+                            </group>
+
+                            <group>
+
+                                <field name="location"/>
+                                <field name="expiration"/>
+                            </group>
+                            <group>
+
+                                <field name="rc"/>
+                                <field name="dp"/>
+                                <field name="dp_port"/>
+
+                                <field name="rating" widget="priority"/>
+                                <field name="pay_rating" widget="priority"/>
+                                <field name="lat"/>
+                                <field name="lng"/>
+
+                            </group>
+
+                            <group>
+                                <field name="ppoe"/>
+                                <field name="Customer_type"/>
+                                <field name="Whatsup_number"/>
+                                <field name="ont_model"/>
+                                <field name="ont_sn"/>
+                                <field name="router_model"/>
+
+                                <field name="area"/>
+                                <field name="dist"/>
+                                <field name="street"/>
+
+
+                            </group>
+
+                        </group>
+
+                        <notebook>
+                            <page string="Internal Notes">
+                                <field name="note"/>
+                            </page>
+                            <page string="Cal Num">
+                                <field name="cal_num"/>
+                            </page>
+
+                            <page string="Active History">
+                                <field name="active_history"/>
+                            </page>
+                            <page string="Task History">
+                                <field name="task"/>
+                            </page>
+                            <page string="users on DP">
+                                <button name="refresh_DP_users" string="Refresh DP User Status" class="oe_highlight"
+                                        type="object"
+                                        groups="base.group_user"/>
+                                <field name="users_in_same_dp"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="sass.action_window">
+            <field name="name">ادارة المشتركين</field>
+            <field name="res_model">sass.users</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

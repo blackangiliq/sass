@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define the view for task.change_request -->
+        <record id="view_task_change_request_tree" model="ir.ui.view">
+            <field name="name">task.change_request.tree</field>
+            <field name="model">task.change_request</field>
+            <field name="arch" type="xml">
+                <tree string="Change Requests">
+                    <field name="name"/>
+                    <field name="ppoe"/>
+                    <field name="firstname"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Define the form view for task.change_request -->
+        <record id="view_task_change_request_form" model="ir.ui.view">
+            <field name="name">task.change_request.form</field>
+            <field name="model">task.change_request</field>
+            <field name="arch" type="xml">
+                <form string="Change Request">
+                    <sheet>
+                        <widget name="web_ribbon" title="reject" bg_color="bg-danger" attrs="{'invisible': [('status', '!=', 'reject')]}"/>
+                        <widget name="web_ribbon" title="approve"  attrs="{'invisible': [('status', '!=', 'approve')]}"/>
+                        <field name="name"/>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="firstname"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="firstname_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="lastname"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="lastname_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="ppoe"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="ppoe_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="Customer_type"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="Customer_type_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="Whatsup_number"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="Whatsup_number_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="ont_model"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="ont_model_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="router_model"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="router_model_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="area"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="area_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="dist"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="dist_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="street"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="street_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="home"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="home_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="rc"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="rc_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="dp"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="dp_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="dp_port"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="dp_port_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="phone"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="phone_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="location"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="location_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="lng"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="lng_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+                            <group>
+                                <group style="display: flex;">
+
+                                    <field name="lat"/>
+                                    <button icon="fa-arrow-right"/>
+                                </group>
+                                <group style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <field name="lat_edite"/>
+                                    </div>
+                                </group>
+                            </group>
+
+
+                        </group>
+                        <group>
+                            <field name="status"/>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Define the action to open the view -->
+        <record id="action_view_task_change_request" model="ir.actions.act_window">
+            <field name="name">Change Requests</field>
+            <field name="res_model">task.change_request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_task_change_request_tree"/>
+        </record>
+
+        <!-- Define the menu item to access the action -->
+        <menuitem id="menu_task_change_request" name="Change Requests" sequence="10"/>
+        <menuitem id="menu_task_change_request_action" name="Change Requests" parent="menu_task_change_request"
+                  action="action_view_task_change_request"/>
+    </data>
+</odoo>

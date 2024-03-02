@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- server action to the one above -->
+    <!-- Top menu item -->
+    <menuitem name="Nat Management" id="sass.menu_root" sequence="0"/>
+    <!-- menu categories -->
+    <menuitem name="Management" id="sass.menu_1" parent="sass.menu_root"/>
+    <!-- actions -->
+    <menuitem name="User Management" id="sass.menu_1_list" parent="sass.menu_1"
+              action="sass.action_window"/>
+
+    <menuitem name="profile type" id="sass.menu_2_list" parent="sass.menu_1"
+              action="profile_type"/>
+
+    <menuitem name="setting" id="sass.menu_3_list" parent="sass.menu_1"
+              action="action_setting"/>
+
+    <menuitem name="expire soon" id="sass.menu_4_list" parent="sass.menu_1"
+              action="action_expire_soon"/>
+
+    <menuitem name="expire whatsapp message" id="sass.menu_5_list" parent="sass.menu_1"
+              action="action_whatsapp_message"/>
+
+    <menuitem name="inventory" id="sass.menu_6_list" parent="sass.menu_1"
+              action="action_inventory"/>
+    <menuitem name="employee.inventory" id="sass.menu_7_list" parent="sass.menu_1"
+              action="action_employee_inventory"/>
+</odoo>

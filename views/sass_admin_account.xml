@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Define a new tree view for custom.person model -->
+        <record id="view_setting_tree" model="ir.ui.view">
+            <field name="name">setting.tree</field>
+            <field name="model">setting</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sass_password"/>
+                    <field name="sass_ip"/>
+                    <field name="area"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define a new form view for custom.person model -->
+        <record id="view_setting_form" model="ir.ui.view">
+            <field name="name">setting.form</field>
+            <field name="model">setting</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sass_password"/>
+                            <field name="sass_ip"/>
+                            <field name="area"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define a new action for custom.person model -->
+        <record id="action_setting" model="ir.actions.act_window">
+            <field name="name">حسابات ادمن الساس والزون</field>
+            <field name="res_model">setting</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
